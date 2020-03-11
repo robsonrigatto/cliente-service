@@ -1,11 +1,11 @@
 package br.com.rr.mastertech.cliente.service;
 
 import br.com.rr.mastertech.cliente.domain.Cliente;
+import br.com.rr.mastertech.cliente.exception.ClienteNaoEncontradoException;
 import br.com.rr.mastertech.cliente.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.Optional;
 
 @Service
@@ -17,7 +17,7 @@ public class ClienteService {
     public Cliente findById(Integer id) {
         Optional<Cliente> optionalCliente = clienteRepository.findById(id);
         if(!optionalCliente.isPresent()) {
-            throw new EntityNotFoundException();
+            throw new ClienteNaoEncontradoException();
         }
 
         return optionalCliente.get();
