@@ -1,4 +1,4 @@
-package br.com.rr.mastertech.clienteservice;
+package br.com.rr.mastertech.cliente;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
