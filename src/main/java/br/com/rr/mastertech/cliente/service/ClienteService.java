@@ -24,6 +24,8 @@ public class ClienteService {
     }
 
     public Cliente create(String name) {
-        return this.clienteRepository.save(Cliente.builder().name(name).build());
+        Cliente cliente = new Cliente();
+        cliente.setName(name);
+        return this.clienteRepository.save(cliente);
     }
 }

@@ -1,12 +1,17 @@
 package br.com.rr.mastertech.cliente.dto.request;
 
-import lombok.Data;
-
 import javax.validation.constraints.NotNull;
 
-@Data
 public class CreateClienteDTO {
 
     @NotNull
     private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

@@ -38,7 +38,9 @@ public class ClienteControllerTest {
 
     @Test
     public void findById_found() {
-        when(clienteService.findById(1)).thenReturn(Cliente.builder().id(1).name("Robson Rigatto").build());
+        Cliente cliente = new Cliente();
+        cliente.setId(1); cliente.setName("Robson Rigatto");
+        when(clienteService.findById(1)).thenReturn(cliente);
         when(clienteMapper.toDTO(any())).thenReturn(new ClienteDTO(1, "Robson Rigatto"));
         ResponseEntity<ClienteDTO> response = controller.findById(1);
 
@@ -51,7 +53,10 @@ public class ClienteControllerTest {
         CreateClienteDTO createDTO = new CreateClienteDTO();
         createDTO.setName("Robson Rigatto");
 
-        when(clienteService.create(any())).thenReturn(Cliente.builder().id(5).name("Robson Rigatto").build());
+        Cliente cliente = new Cliente();
+        cliente.setId(5); cliente.setName("Robson Rigatto");
+
+        when(clienteService.create(any())).thenReturn(cliente);
         when(clienteMapper.toDTO(any())).thenReturn(new ClienteDTO(5, "Robson Rigatto"));
 
         ResponseEntity<ClienteDTO> response = controller.create(createDTO);
